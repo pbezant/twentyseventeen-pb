@@ -1,0 +1,165 @@
+/*
+sass --watch /Applications/MAMP/htdocs/themeDev/wp-content/themes/twentyseventeen-pb/style.scss:style.css
+
+ Theme Name:   Twenty Seventeen PB
+ Theme URI:    http://www.prestonbezant.com/twenty-seventeen-child/
+ Description:  Twenty Seventeen Child Theme
+ Author:       Preston Bezant
+ Author URI:   http://www.prestonbezant.com
+ Template:     twentyseventeen
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  twenty-fifteen-child
+*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@keyframes pulse {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
+  50% {
+    -webkit-transform: translate(0, 10px);
+    transform: translate(0, 10px); }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); } }
+
+body, button, input, select, textarea {
+  font-family: "Open Sans", sans-serif; }
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto; }
+  .flex p, .flex img, .flex > div {
+    margin: 0.5vw;
+    width: 100%; }
+  .flex.flex-wrap {
+    flex-wrap: wrap;
+    align-items: flex-start; }
+  @media (min-width: 50em) {
+    .flex {
+      flex-direction: row; } }
+
+.wrap {
+  max-width: none !important; }
+
+body:not(.title-tagline-hidden) .site-branding-text {
+  display: initial; }
+
+@media screen and (min-width: 30em) {
+  .site-branding {
+    padding: 1em 0; } }
+
+.has-header-image.twentyseventeen-front-page .site-branding,
+.has-header-video.twentyseventeen-front-page .site-branding,
+.has-header-image.home.blog .site-branding,
+.has-header-video.home.blog .site-branding {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  bottom: initial;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  height: initial;
+  z-index: 0; }
+  .has-header-image.twentyseventeen-front-page .site-branding .custom-logo-link,
+  .has-header-video.twentyseventeen-front-page .site-branding .custom-logo-link,
+  .has-header-image.home.blog .site-branding .custom-logo-link,
+  .has-header-video.home.blog .site-branding .custom-logo-link {
+    padding-right: initial; }
+    .has-header-image.twentyseventeen-front-page .site-branding .custom-logo-link img,
+    .has-header-video.twentyseventeen-front-page .site-branding .custom-logo-link img,
+    .has-header-image.home.blog .site-branding .custom-logo-link img,
+    .has-header-video.home.blog .site-branding .custom-logo-link img {
+      max-width: 320px !important;
+      max-height: initial; }
+  .has-header-image.twentyseventeen-front-page .site-branding .site-title,
+  .has-header-video.twentyseventeen-front-page .site-branding .site-title,
+  .has-header-image.home.blog .site-branding .site-title,
+  .has-header-video.home.blog .site-branding .site-title {
+    margin: 0; }
+  .has-header-image.twentyseventeen-front-page .site-branding .site-description,
+  .has-header-video.twentyseventeen-front-page .site-branding .site-description,
+  .has-header-image.home.blog .site-branding .site-description,
+  .has-header-video.home.blog .site-branding .site-description {
+    display: inline;
+    text-shadow: 1px 1px 1px #787777;
+    filter: dropshadow(color=#787777, offx=1, offy=1); }
+  .has-header-image.twentyseventeen-front-page .site-branding .menu-scroll-down,
+  .has-header-video.twentyseventeen-front-page .site-branding .menu-scroll-down,
+  .has-header-image.home.blog .site-branding .menu-scroll-down,
+  .has-header-video.home.blog .site-branding .menu-scroll-down {
+    top: initial;
+    right: initial;
+    bottom: -2em;
+    position: relative;
+    display: block;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse 2s infinite; }
+    .has-header-image.twentyseventeen-front-page .site-branding .menu-scroll-down .icon,
+    .has-header-video.twentyseventeen-front-page .site-branding .menu-scroll-down .icon,
+    .has-header-image.home.blog .site-branding .menu-scroll-down .icon,
+    .has-header-video.home.blog .site-branding .menu-scroll-down .icon {
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      transform: rotate(90deg); }
+  .has-header-image.twentyseventeen-front-page .site-branding a:hover, .has-header-image.twentyseventeen-front-page .site-branding a:focus,
+  .has-header-video.twentyseventeen-front-page .site-branding a:hover,
+  .has-header-video.twentyseventeen-front-page .site-branding a:focus,
+  .has-header-image.home.blog .site-branding a:hover,
+  .has-header-image.home.blog .site-branding a:focus,
+  .has-header-video.home.blog .site-branding a:hover,
+  .has-header-video.home.blog .site-branding a:focus {
+    opacity: initial; }
+  .has-header-image.twentyseventeen-front-page .site-branding .header-text *,
+  .has-header-video.twentyseventeen-front-page .site-branding .header-text *,
+  .has-header-image.home.blog .site-branding .header-text *,
+  .has-header-video.home.blog .site-branding .header-text * {
+    line-height: 1em; }
+
+.panel-content {
+  text-align: center; }
+  .panel-content h2, .panel-content p {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto; }
+
+.panel-image {
+  height: 60vh; }
+
+main > article {
+  background-color: initial; }
+  main > article:nth-of-type(odd):not(:first-of-type) {
+    background-color: rgba(0, 0, 0, 0.05); }
+
+.recent-posts article {
+  padding: 3em 5vw;
+  margin-bottom: 0 !important;
+  background-color: #FFFFFF; }
+  .recent-posts article:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05); }
+  @media (min-width: 50em) {
+    .recent-posts article {
+      text-align: right !important;
+      flex-direction: row; }
+      .recent-posts article:nth-of-type(odd) {
+        flex-direction: row-reverse;
+        text-align: left !important; }
+        .recent-posts article:nth-of-type(odd) .post-thumbnail {
+          margin-left: 9vw;
+          margin-right: 0; }
+      .recent-posts article:nth-of-type(even) .post-thumbnail {
+        margin-left: 0;
+        margin-right: 9vw; } }
+
+.service-box {
+  flex-basis: 30%;
+  margin-bottom: 3em !important; }
+  .service-box i {
+    text-align: center; }
+  .service-box h3 {
+    padding-top: 0.5em; }

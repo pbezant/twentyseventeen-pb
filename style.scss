@@ -1,0 +1,209 @@
+/*
+sass --watch /Applications/MAMP/htdocs/themeDev/wp-content/themes/twentyseventeen-pb/style.scss:style.css
+
+ Theme Name:   Twenty Seventeen PB
+ Theme URI:    http://www.prestonbezant.com/twenty-seventeen-child/
+ Description:  Twenty Seventeen Child Theme
+ Author:       Preston Bezant
+ Author URI:   http://www.prestonbezant.com
+ Template:     twentyseventeen
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  twenty-fifteen-child
+*/
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+$font__main: 'Open Sans', sans-serif;
+$white: #FFFFFF;
+
+@keyframes pulse{
+	0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+	}
+	50% {
+	    -webkit-transform: translate(0, 10px);
+	    transform: translate(0, 10px);
+	}
+	100% {
+	    -webkit-transform: translate(0, 0);
+	    transform: translate(0, 0);
+	}
+}
+
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: 50em) { @content ; }
+     //@media (min-width: 44em) { @content ; }
+  }
+  @else if $point == mobile-horiz {
+     @media (max-height: 30em)  { @content ; }
+
+  }
+  @else if $point == mobileonly {
+     @media (max-width: 25em)  { @content ; }
+
+  }
+}
+ 
+body, button, input, select, textarea {
+    font-family: $font__main;
+}
+
+.flex{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin:auto;
+	p, img, &>div{
+		margin:0.5vw;
+		width:100%;
+	}
+	&.flex-wrap{
+		flex-wrap:wrap;
+		align-items:flex-start;
+	}
+	@include breakpoint('desktop'){
+		flex-direction: row;
+	}
+}
+
+.wrap{
+	max-width:none !important;
+}
+body:not(.title-tagline-hidden) .site-branding-text {
+	display:initial;
+}
+.site-branding{
+	@media screen and (min-width: 30em){
+		padding:1em 0;
+	}
+}
+
+.has-header-image.twentyseventeen-front-page .site-branding, 
+.has-header-video.twentyseventeen-front-page .site-branding, 
+.has-header-image.home.blog .site-branding, 
+.has-header-video.home.blog .site-branding{
+	position: fixed;
+    top: 50%;
+	left: 50%;
+	bottom:initial;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    height: initial;
+    z-index: 0;
+    
+	.custom-logo-link{
+		padding-right:initial;
+		img{
+			max-width:320px !important;
+			max-height: initial;
+
+		}
+	}
+	.site-title{
+		margin:0;
+	}
+	.site-description{
+		display: inline;
+		text-shadow: 1px 1px 1px #787777;
+    	filter: dropshadow(color=#787777, offx=1, offy=1);
+	}
+
+	.menu-scroll-down{
+		top:initial;
+		right:initial;
+		bottom:-2em;
+		position:relative;
+		display: block;
+		-webkit-animation: pulse 2s infinite;
+	    animation: pulse 2s infinite;
+
+		.icon{
+			-webkit-transform: rotate(90deg);
+			-ms-transform: rotate(90deg);
+			transform: rotate(90deg);
+
+		}
+	}
+	a:hover, a:focus{
+		opacity: initial;
+	}
+
+	.header-text *{
+		line-height: 1em;
+	}
+}	
+
+
+
+.panel-content{
+	text-align:center;
+	h2, p{
+		max-width: 750px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+.panel-image {
+    height: 60vh;
+    //background-size:contain;
+    //-webkit-background-size: contain;
+}
+
+
+main > article{
+	background-color:initial;
+	&:nth-of-type(odd):not(:first-of-type){
+		background-color:rgba(0,0,0,0.05);	
+	}
+}
+//Blog Posts on the front Page
+.recent-posts article{
+	//min-height: 65vh;
+	padding:3em 5vw;
+	margin-bottom:0 !important;
+	background-color:$white;
+	
+	&:nth-of-type(odd){
+		//background-color:$white;
+		background-color:rgba(0,0,0,0.05);
+	}
+	@include breakpoint('mobile-horizontal'){
+		min-height: 60em;
+		padding:3em 10vw;
+	}
+	@include breakpoint('desktop'){
+		text-align: right !important;
+		flex-direction: row;
+		&:nth-of-type(odd){
+			flex-direction: row-reverse;
+			text-align: left !important;
+			.post-thumbnail{
+				margin-left:9vw;
+				margin-right: 0;
+			}
+		}
+		&:nth-of-type(even){
+			.post-thumbnail{
+				margin-left:0;
+				margin-right:9vw;
+			}
+		}
+	}
+}
+
+.service-box{
+	flex-basis:30%;
+	margin-bottom:3em !important;
+	i{
+		text-align:center;
+	}
+	h3{
+		padding-top:0.5em;
+	}
+}
